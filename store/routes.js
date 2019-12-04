@@ -6,7 +6,7 @@ const {
 
 const storeRoutes = Router()
 
-storeRoutes.post('/', products)
+storeRoutes.post('/v1/products', products)
 
 
 module.exports = {
