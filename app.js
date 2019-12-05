@@ -1,7 +1,7 @@
-var express = require('express');
+const express = require('express')
 const bodyParser = require('body-parser')
-var app = express();
-var connection = require('./libs/db')
+const app = express()
+const connection = require('./libs/db')
 
 const { storeRoutes } = require('./store/routes')
 
@@ -12,5 +12,5 @@ app.use(bodyParser.json())
 app.use('/store', storeRoutes)
 
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
+  console.log('Api up on port 3000')
+})
