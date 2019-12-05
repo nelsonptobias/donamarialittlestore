@@ -1,4 +1,4 @@
-const Produto = require('../model/Produto')
+const Produto = require('../model/produto')
 
 const postProducts = async (req, res) => {
   const { id, sku, name, price } = req.body

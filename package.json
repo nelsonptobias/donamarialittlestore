@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.7.13"
+    "mongoose": "^5.7.13",
+    "validar-cpf": "^2.1.2"
   },
   "devDependencies": {}
 }

@@ -1,4 +1,4 @@
-const Produto = require('../model/Produto')
+const Produto = require('../model/produto')
 
 const getProducts = async (req, res) => {
   const produtos = await Produto.find({})
