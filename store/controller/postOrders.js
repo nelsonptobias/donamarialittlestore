@@ -15,23 +15,11 @@ const postOrders = async (req, res) => {
       items
     })
 
-    // if (await produto.checkId(id)) {
-    //   return res.send({
-    //     message: `id ${id} informado ja existente`
-    //   })
-    // }
-
-    // if (await produto.checkSku(sku)) {
-    //   return res.send({
-    //     message: `sku ${sku} informado ja existente`
-    //   })
-    // }
-
-    // if (await produto.checkName(name)) {
-    //   return res.send({
-    //     message: `name ${name} informado ja existente`
-    //   })
-    // }
+    if (await Order.checkId(id)) {
+      return res.send({
+        message: `id ${id} informado ja existente`
+      })
+    }
 
     await orders.save()
 

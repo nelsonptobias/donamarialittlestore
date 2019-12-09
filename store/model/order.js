@@ -68,22 +68,10 @@ const Order = new Schema({
   }
 })
 
-// Order.methods.checkId = async function checkId (idOrder) {
-//   return this.model('Order').findOne({
-//     id: idOrder
-//   })
-// }
-
-// Order.methods.checkSku = async function checkSku (skuOrder) {
-//   return this.model('Order').findOne({
-//     sku: skuOrder
-//   })
-// }
-
-// Order.methods.checkName = async function checkName (nameOrder) {
-//   return this.model('Order').findOne({
-//     name: nameOrder
-//   })
-// }
+Order.methods.checkId = async function checkId (idOrder) {
+  return this.model('Order').findOne({
+    id: idOrder
+  })
+}
 
 module.exports = model('Order', Order)
