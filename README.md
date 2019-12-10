@@ -13,7 +13,7 @@ API backend para a lojinha de dona maria
 # running tests
 > npm test
 
-#validação de rota
+# validação de rota
 
 Existe uma rota feita para geração de token:
 
