@@ -3,19 +3,24 @@ const chai = require('chai')
 const chaiHttp = require('chai-http')
 const should = chai.should()
 
+const { app } = require('../app')
+
 chai.use(chaiHttp)
 
 describe('/POST Produto', () => {
-  it('Verificar o cadastro de Artigo', (done) => {
-    const produto = { // Vamos deinir o artigo que vamos inserir
+  it('Verifica se foi enviado token na requisicao', (done) => {
+    const produto = {
       price: 20
     }
 
     chai.request('http://localhost:3000/store/')
       .post('/v1/products')
-      .send(produto) // vamos enviar esse arquivo
+      .send(produto)
       .end((err, res) => {
-        console.log(err)
+        if (err) {
+          console.log(err)
+          done()
+        }
         res.should.have.status(400)
         done()
       })

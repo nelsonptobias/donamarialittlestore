@@ -21,7 +21,15 @@ const Produto = new Schema({
     required: true
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  toObject: {
+    transform: function (doc, ret) {
+      delete ret._id
+      delete ret.__v
+      delete ret.created_at
+      delete ret.updated_at
+    }
+  }
 })
 
 Produto.methods.checkId = async function checkId (idProduto) {

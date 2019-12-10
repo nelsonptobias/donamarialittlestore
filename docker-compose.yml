@@ -1,0 +1,17 @@
+  
+version: '2'
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: donamarialittlestore
+    command: node app.js
+    ports:
+        - 3000:3000
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+        - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null

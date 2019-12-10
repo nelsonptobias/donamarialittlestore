@@ -1,7 +1,10 @@
 const Produto = require('../model/produto')
 
 const getProducts = async (req, res) => {
-  const produtos = await Produto.find({})
+  var produtos = await Produto.find({})
+  produtos = produtos.map(function (item) {
+    return item.toObject()
+  })
 
   return res.send(
     produtos

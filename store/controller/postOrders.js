@@ -2,20 +2,19 @@ const Order = require('../model/order')
 const Customer = require('../model/customer')
 
 const postOrders = async (req, res) => {
-  const { id, status, total, buyer, items } = req.body
-
-  const customer = await Customer.findOne({ id: buyer.id })
+  const { id, status, total, items, customer_id } = req.body
 
   try {
+    const customer = await Customer.findOne({ id: customer_id })
     var orders = new Order({
       id,
       status,
       total,
-      buyer: customer._id,
+      buyer: customer,
       items
     })
 
-    if (await Order.checkId(id)) {
+    if (await orders.checkId(id)) {
       return res.send({
         message: `id ${id} informado ja existente`
       })

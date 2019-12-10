@@ -1,13 +1,24 @@
+const jwt = require('jsonwebtoken')
+
 const checkRequiredFields = (requiredFields) => {
   return async (req, res, next) => {
     const body = req.body
 
     try {
-      requiredFields.map(function (requiredField) {
-        if (!body[requiredField]) {
-          throw new Error(`camopo ${requiredField} e obrigatorio`)
-        }
-      })
+      const token = req.headers['x-api-key']
+
+      const userInfo = jwt.verify(token, 'banana')
+      if (!userInfo) {
+        throw new Error('Invalid api-key')
+      }
+
+      if (requiredFields) {
+        requiredFields.map(function (requiredField) {
+          if (typeof body[requiredField] === 'undefined') {
+            throw new Error(`campo ${requiredField} e obrigatorio`)
+          }
+        })
+      }
 
       next()
     } catch (error) {

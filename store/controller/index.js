@@ -4,6 +4,7 @@ const { postCustomers } = require('./postCustomers')
 const { postOrders } = require('./postOrders')
 const { putOrders } = require('./putOrders')
 const { getOrders } = require('./getOrders')
+const { postUser } = require('./postUser')
 
 module.exports = {
   postProducts,
@@ -11,5 +12,6 @@ module.exports = {
   postCustomers,
   postOrders,
   putOrders,
-  getOrders
+  getOrders,
+  postUser
 }
